@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Routine Tracker - Auth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="shared.css">
+
+</head>
+<body>
+
+    <!-- Theme toggle matching dashboard -->
+    <button class="theme-btn" id="themeBtn" title="Toggle Theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+
+    <div class="login-wrapper">
+        <div class="card">
+
+            <!-- Brand header -->
+            <div class="brand">
+                <div class="brand-logo">
+                    <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+                        <rect x="6" y="8" width="24" height="3" rx="1.5" fill="white"/>
+                        <rect x="6" y="14" width="16" height="3" rx="1.5" fill="white" opacity="0.7"/>
+                        <rect x="6" y="20" width="20" height="3" rx="1.5" fill="white" opacity="0.5"/>
+                        <circle cx="27" cy="26" r="5" fill="white" opacity="0.9"/>
+                        <polyline points="24.5,26 26.5,28 30,24" stroke="#0066FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                </div>
+                <div class="brand-name">DRT</div>
+            </div>
+
+            <!-- LOGIN VIEW (unchanged) -->
+            <div id="view-login" class="auth-view active">
+                <form id="form-login">
+                    <input type="email" id="login-user" placeholder="Email Address" required>
+                    <input type="password" id="login-pass" placeholder="Password" required>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <div class="auth-footer">
+                    <a onclick="showView('forgot')" class="auth-link">Forgot Password?</a>
+                    <a onclick="showView('signup')" class="auth-link">Create Account</a>
+                </div>
+            </div>
+
+            <!-- SIGNUP VIEW (unchanged) -->
+            <div id="view-signup" class="auth-view">
+                <form id="form-signup">
+                    <input type="text" id="signup-name" placeholder="Full Name" required>
+                    <input type="email" id="signup-email" placeholder="Email Address" required>
+                    <input type="password" id="signup-pass" placeholder="Create Password" required>
+                    <button type="submit" class="btn-primary">Get Started</button>
+                </form>
+                <div class="auth-footer">
+                    <span style="font-size:13px; color:var(--text-muted)">Have an account?</span>
+                    <a onclick="showView('login')" class="auth-link">Login</a>
+                </div>
+            </div>
+
+            <!-- FORGOT VIEW (unchanged) -->
+            <div id="view-forgot" class="auth-view">
+                <form id="form-forgot">
+                    <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; text-align:center;">
+                        Enter your email to receive a reset link.
+                    </p>
+                    <input type="email" id="forgot-email" placeholder="Email Address" required>
+                    <button type="submit" class="btn-primary">Send Reset Link</button>
+                </form>
+                <div class="auth-footer" style="justify-content:center;">
+                    <a onclick="showView('login')" class="auth-link">Back to Login</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>

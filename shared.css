@@ -1,0 +1,173 @@
+       /* ── TOKENS matched exactly to dashboard.css ── */
+        :root {
+            --bg-body: #F2F4F8;
+            --bg-card: #FFFFFF;
+            --text-main: #000000;
+            --text-muted: #64748B;
+            --neon-primary: #0066FF;
+            --nav-active-grad: linear-gradient(135deg, #0066FF 0%, #0033CC 100%);
+            --border-glass: 1px solid rgba(0, 0, 0, 0.08);
+            --input-bg: rgba(0, 0, 0, 0.04);
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #050507;
+            --bg-card: #121217;
+            --text-main: #FFFFFF;
+            --text-muted: #8899AC;
+            --neon-primary: #2DE2E6;
+            --nav-active-grad: linear-gradient(135deg, #2DE2E6 0%, #036ED9 100%);
+            --border-glass: 1px solid rgba(255, 255, 255, 0.06);
+            --input-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* ── THEME TOGGLE (matches dashboard settings btn) ── */
+        .theme-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--input-bg);
+            border: var(--border-glass);
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.15s ease;
+        }
+        .theme-btn:hover { transform: scale(1.07); }
+        .theme-btn:active { transform: scale(0.93); }
+
+        /* ── CARD (matches dashboard .card) ── */
+        .login-wrapper {
+            width: 100%;
+            max-width: 400px;
+            padding: 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 28px;
+            padding: 40px 32px;
+            border: var(--border-glass);
+            border-top: 3px solid var(--neon-primary);
+            box-shadow: 0 4px 24px rgba(0, 102, 255, 0.07), 0 1px 4px rgba(0,0,0,0.06);
+            transition: box-shadow 0.4s ease;
+        }
+        [data-theme="dark"] .card {
+            box-shadow: 0 20px 40px -5px rgba(0,0,0,0.5);
+        }
+
+        /* ── BRAND HEADER ── */
+        .brand {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .brand-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 18px;
+            background: var(--nav-active-grad);
+            margin-bottom: 10px;
+            box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);
+        }
+        [data-theme="dark"] .brand-logo {
+            box-shadow: 0 4px 16px rgba(45, 226, 230, 0.25);
+        }
+        .brand-name {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* ── INPUTS (matches dashboard modal inputs) ── */
+        input {
+            width: 100%;
+            padding: 16px;
+            background: var(--input-bg);
+            color: var(--text-main);
+            border: var(--border-glass);
+            border-radius: 16px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+        input::placeholder { color: var(--text-muted); font-weight: 500; }
+        input:focus {
+            border-color: var(--neon-primary);
+            background: var(--bg-card);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.12);
+        }
+        [data-theme="dark"] input:focus {
+            box-shadow: 0 0 0 3px rgba(45, 226, 230, 0.14);
+        }
+
+        /* ── BUTTON (matches dashboard .btn-primary) ── */
+        .btn-primary {
+            width: 100%;
+            padding: 16px;
+            background: var(--text-main);
+            color: var(--bg-body);
+            border: none;
+            border-radius: 16px;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.15s ease, opacity 0.2s ease;
+            margin-top: 6px;
+        }
+        .btn-primary:hover { opacity: 0.87; transform: translateY(-1px); }
+        .btn-primary:active { transform: scale(0.97); }
+
+        /* ── FOOTER LINKS ── */
+        .auth-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+            padding: 0 4px;
+        }
+
+        .auth-link {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .auth-link:hover { color: var(--neon-primary); }
+
+        /* ── VIEW SWITCHING (unchanged) ── */
+        .auth-view { display: none; }
+        .auth-view.active { display: block; animation: fadeIn 0.35s ease forwards; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
